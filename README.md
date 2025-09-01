@@ -20,3 +20,11 @@ Sitio web desarrollado en Next.js + TypeScript + Tailwind CSS para la inmobiliar
 
 ## Contacto y soporte
 Para soporte técnico o mejoras, contactar a Jbrito81.
+
+## Despliegue en Vercel
+- Conecta el repo en https://vercel.com/new y selecciona el proyecto `avitar-web2`.
+- Framework: Next.js (detección automática).
+- Build command: `npm run build`. Install: `npm install`.
+- Variables de entorno: agrégalas en Project Settings → Environment Variables si se requieren.
+- Runtime: Node 20 con `vercel.json`.
+- Cada push a `main` hace deploy automático.
