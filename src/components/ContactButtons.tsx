@@ -1,6 +1,6 @@
 "use client";
 
-import { config } from '@/lib/config';
+import appConfig from '@/lib/config';
 
 interface ContactButtonsProps {
   propertyId?: string;
@@ -13,17 +13,17 @@ export default function ContactButtons({ propertyId, propertyTitle }: ContactBut
     : 'Hola, estoy interesado en obtener más información';
 
   const handleWhatsAppClick = () => {
-    const url = `https://wa.me/${config.contact.whatsapp}?text=${encodeURIComponent(defaultMessage)}`;
+    const url = `https://wa.me/${appConfig.contact.whatsapp}?text=${encodeURIComponent(defaultMessage)}`;
     window.open(url, '_blank');
   };
 
   const handlePhoneClick = () => {
-    window.location.href = `tel:${config.contact.phone}`;
+    window.location.href = `tel:${appConfig.contact.phone}`;
   };
 
   const handleEmailClick = () => {
-    if (config.contact.email) {
-      window.location.href = `mailto:${config.contact.email}?subject=Consulta sobre propiedad&body=${encodeURIComponent(defaultMessage)}`;
+    if (appConfig.contact.email) {
+      window.location.href = `mailto:${appConfig.contact.email}?subject=Consulta sobre propiedad&body=${encodeURIComponent(defaultMessage)}`;
     }
   };
 
@@ -43,7 +43,7 @@ export default function ContactButtons({ propertyId, propertyTitle }: ContactBut
         <span className="mr-2">📞</span>
         Llamar
       </button>
-      {config.contact.email && (
+      {appConfig.contact.email && (
         <button
           onClick={handleEmailClick}
           className="flex-1 bg-[#FF6B38] text-white px-4 py-2 rounded-md hover:bg-[#e55a2d] transition-colors flex items-center justify-center"
