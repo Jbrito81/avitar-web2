@@ -1,0 +1,13 @@
+# Exclude local-only files when deploying with Vercel CLI
+.next/
+node_modules/
+out/
+build/
+.vercel/
+.yarn/
+.vscode/
+.qodo/
+*.log
+*.tsbuildinfo
+.env*
+.DS_Store
