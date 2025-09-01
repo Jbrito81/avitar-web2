@@ -2,7 +2,7 @@
   "name": "avitar-web",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+  "scripts": {\n    "typecheck": "tsc -p tsconfig.json --noEmit",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
@@ -21,4 +21,4 @@
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4"
   }
-}
+,\n  "engines": { "node": ">=20" }\n}
