@@ -1,0 +1,119 @@
+'use client';
+
+import { FaSearch, FaBed, FaBath, FaRulerCombined } from 'react-icons/fa';
+import { useState } from 'react';
+import PropertyFilters from '@/components/PropertyFilters';
+import type { PropertyFilters as FiltersType } from '@/lib/types';
+
+export default function ArriendosPage() {
+  const [activeFilters, setActiveFilters] = useState<FiltersType>({});
+
+  const handleFilterChange = (filters: FiltersType) => {
+    setActiveFilters(filters);
+    // Aquí implementaremos la lógica de filtrado cuando tengamos la base de datos
+    console.log('Filtros aplicados:', filters);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-3xl font-bold text-[#2B3B8C] mb-6">
+          Propiedades en Arriendo
+        </h1>
+        
+        <PropertyFilters
+          isRental={true}
+          onFilterChange={handleFilterChange}
+          className="mb-8"
+        />
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Propiedad 1 */}
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="relative h-48 bg-gray-200">
+              <img
+                src="/images/arriendos/apartamento-centro.jpg"
+                alt="Apartamento en Centro"
+                className="object-cover w-full h-full"
+              />
+              <div className="absolute top-0 right-0 bg-[#FF6B38] text-white px-3 py-1 m-2 rounded">
+                Destacado
+              </div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-[#2B3B8C] mb-2">
+                Apartamento en Centro
+              </h3>
+              <p className="text-gray-600 mb-4">Ubicación del inmueble</p>
+              <div className="flex justify-between mb-4">
+                <div className="flex items-center">
+                  <FaBed className="text-[#FF6B38] mr-1" />
+                  <span>3 hab.</span>
+                </div>
+                <div className="flex items-center">
+                  <FaBath className="text-[#FF6B38] mr-1" />
+                  <span>2 baños</span>
+                </div>
+                <div className="flex items-center">
+                  <FaRulerCombined className="text-[#FF6B38] mr-1" />
+                  <span>80 m²</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-2xl font-bold text-[#2B3B8C]">
+                  $1.500.000
+                </span>
+                <button className="px-4 py-2 bg-[#2B3B8C] text-white rounded-md hover:bg-[#232f70] transition-colors">
+                  Ver detalles
+                </button>
+              </div>
+            </div>
+          </div>
+          {/* Propiedad 2 */}
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="relative h-48 bg-gray-200">
+              <img
+                src="/images/arriendos/alto-prado.jpg"
+                alt="Apartamento barrio Alto Prado"
+                className="object-cover w-full h-full"
+              />
+              <div className="absolute top-0 right-0 bg-[#FF6B38] text-white px-3 py-1 m-2 rounded">
+                Nuevo
+              </div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-[#2B3B8C] mb-2">
+                Apartamento barrio Alto Prado
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Tiene un baño, dos habitaciones, sala-comedor y cocina.
+              </p>
+              <div className="flex justify-between mb-4">
+                <div className="flex items-center">
+                  <FaBed className="text-[#FF6B38] mr-1" />
+                  <span>2 hab.</span>
+                </div>
+                <div className="flex items-center">
+                  <FaBath className="text-[#FF6B38] mr-1" />
+                  <span>1 baño</span>
+                </div>
+                <div className="flex items-center">
+                  <FaRulerCombined className="text-[#FF6B38] mr-1" />
+                  <span>60 m²</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-2xl font-bold text-[#2B3B8C]">
+                  $750.000
+                </span>
+                <button className="px-4 py-2 bg-[#2B3B8C] text-white rounded-md hover:bg-[#232f70] transition-colors">
+                  Ver detalles
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

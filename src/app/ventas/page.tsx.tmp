@@ -1,0 +1,61 @@
+'use client';
+
+import { useState } from 'react';
+import PropertyFilters from '@/components/PropertyFilters';
+import type { PropertyFilters as FiltersType } from '@/lib/types';
+
+export default function VentasPage() {
+  const [activeFilters, setActiveFilters] = useState<FiltersType>({});
+
+  const handleFilterChange = (filters: FiltersType) => {
+    setActiveFilters(filters);
+    // Aquí implementaremos la lógica de filtrado cuando tengamos la base de datos
+    console.log('Filtros aplicados:', filters);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-3xl font-bold text-[#2B3B8C] mb-6">
+          Propiedades en Venta
+        </h1>
+        
+        <PropertyFilters
+          isRental={false}
+          onFilterChange={handleFilterChange}
+          className="mb-8"
+        />
+
+        <div className="space-y-12">
+          {/* Propiedades Destacadas */}
+          <div>
+            <h2 className="text-2xl font-semibold text-[#2B3B8C] mb-6">
+              Propiedades Destacadas
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-md p-4">
+                <p className="text-gray-500">
+                  No hay propiedades destacadas disponibles
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Lotes y Terrenos */}
+          <div>
+            <h2 className="text-2xl font-semibold text-[#2B3B8C] mb-6">
+              Lotes y Terrenos
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-md p-4">
+                <p className="text-gray-500">
+                  No hay lotes disponibles
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
